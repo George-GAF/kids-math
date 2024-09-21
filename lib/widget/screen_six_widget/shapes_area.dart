@@ -1,4 +1,3 @@
-//import 'dart:developer' as dev;
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -6,7 +5,6 @@ import 'package:provider/provider.dart';
 
 import '../../constant/constant.dart';
 import '../../helper/shape.dart';
-//import '../../provider/screen_six_controller.dart';
 import '../../provider/state_mange/update_ui.dart';
 import '../drag_and_drop_widget/draggable_widget.dart';
 import '../../helper/draggable_item.dart';
@@ -16,25 +14,19 @@ class ShapesArea extends StatelessWidget {
   final List<Shape> shapes;
   @override
   Widget build(BuildContext context) {
-    // var provider = context.read<ScreenSixController>();
     var provider = context.read<UpdateUi>();
     var listCount = provider.shapePuzzle().getCellCount();
 
     var size = provider.shapePuzzle().getTargetSize() / 2;
-
-    //dev.log('Size $size\nsize * 3 = ${size * 3}');
-    var listIndex = List.generate(listCount, (index) => index);
-    //dev.log('list index $listIndex');
+   var listIndex = List.generate(listCount, (index) => index);
 
     final GlobalKey boardKey = GlobalKey();
-    return Container(
+    return SizedBox(//TODO: this in Original is Container
       key: boardKey,
-      color: Colors.white,
       width: size * 3,
       height: double.infinity,
       child: Stack(
         children: List<Widget>.generate(listCount, (i) {
-          //var shapes = context.watch<UpdateUi>().shapePuzzle.shapes;
           int index = Random().nextInt(listIndex.length);
           var willRemove = listIndex[index];
           listIndex.remove(willRemove);
@@ -113,22 +105,14 @@ class _UnPlacedShapeState extends State<UnPlacedShape> {
                 sPosY = pos.dy;
               },
               onEnd: (detail) {
-                //dev.log(
-                //    '******************** on end passed ********************');
-                //dev.log(
-                //  'Position x : ${detail.offset.dx} y : ${detail.offset.dy}');
                 var tLeft = left + detail.offset.dx - sPosX;
                 var tTop = top + detail.offset.dy - sPosY;
-                //dev.log('left : $left t Left : $tLeft');
                 setState(() {
                   left =
                       tLeft > 0 && tLeft < (widget.size * 3) - (widget.size / 2)
                           ? tLeft
                           : left;
                   top = tTop > 0 && tTop < maxYPosition ? tTop : top;
-
-                  //dev.log(
-                  //  '******************** on end passed ********************');
                   providerW.shapePuzzle().leftListPos[widget.index] = left;
                   providerW.shapePuzzle().topListPos[widget.index] = top;
                 });
@@ -180,10 +164,8 @@ class Box extends DraggableItem {
         gradient: shape.shapeType == BoxShape.circle
             ? RadialGradient(colors: colors)
             : LinearGradient(colors: colors),
-        //color: shape.shapeColor,
         shape: shape.shapeType,
         boxShadow: shadow,
-        //borderRadius:BorderRadius.circular(5) ,
       ),
     );
   }

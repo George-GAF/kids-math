@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-
 import '../constant/constant.dart';
+import '../helper/puzzles_class/shape_value_puzzle.dart';
 import '../widget/cus_text.dart';
 import '../widget/icon_image.dart';
+import '../widget/screen_eight_widget/shapes_widget_row.dart';
+import '../widget/screen_eight_widget/values_widget_row.dart';
 
 List<Widget> icons = [
   childrenInColumn(colorAsNum()),
@@ -12,11 +14,28 @@ List<Widget> icons = [
   childrenInColumn(completeNumberChine('6 .. 4', '.. 2 1')),
   iconImage('${iconPath}Tetris.png'),
   customText('Click on Number'),
-  iconImage('${iconPath}iconLinkCountToNum.png'),
+  _shapeValueIcon,
+  //iconImage('${iconPath}iconLinkCountToNum.png'),
   colorAsNumberList(),
   // iconImage('${iconPath}whatcomenext.png'),
 ];
+//----------------------------------------------------
+var size = 14.0;
+ShapeValuePuzzle shValue = ShapeValuePuzzle();
 
+var _shapeValueIcon = Column(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: [
+    ShapesWidgetRow(size: size, borderColor: Colors.black),
+    ValuesWidgetRow(
+      length: shValue.getLen(),
+      size: size,
+      borderColor: Colors.black,
+      color: Colors.white,
+    ),
+  ],
+);
+//-----------------------------------
 //---------------------------Blue Print--------------------------------
 Widget childrenInColumn(List<Widget> children) {
   return Column(

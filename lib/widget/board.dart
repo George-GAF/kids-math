@@ -83,7 +83,6 @@ class _BoardButton extends StatelessWidget {
         shadowColor: Colors.black,
         elevation: 5
       ),
-
       child: SizedBox(
         height: _avaWidth / 5,
         width: _avaWidth / 5,

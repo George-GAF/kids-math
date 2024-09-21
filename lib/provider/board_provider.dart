@@ -24,16 +24,18 @@ class BoardProvider extends ChangeNotifier {
     _indexTapped = current;
   }
 
-  void updateNumberTyped(int newNumber) {
-    String v = '${newNumber == -1 ? "" : newNumber}';
+  void updateNumberTyped(int newNumber, {allowedLen = 2}) {
+    String v = '${newNumber == -1 ? '' : newNumber}';
     if (_numberTyped == -1) {
       v = newNumber == -1 ? '' : newNumber.toString();
     } else {
-      if (_numberTyped.toString().length == 2 && newNumber != -1) {
+      //Force to respect len needed
+      if (_numberTyped.toString().length == allowedLen && newNumber != -1) {
         return;
       }
       if (newNumber != -1) {
         v = '$numberTyped$newNumber';
+        // when newNumber = -1
       } else {
         String tem = _numberTyped.toString();
         v = tem.length > 1 ? tem.substring(0, tem.length - 1) : '';

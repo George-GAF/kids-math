@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../helper/color_and_shape_puzzle.dart';
-import '../../helper/detect_number_puzzle.dart';
-import '../../helper/puzzle.dart';
+import '../../helper/puzzles_class/color_and_shape_puzzle.dart';
+import '../../helper/puzzles_class/detect_number_puzzle.dart';
+import '../../helper/puzzles_class/puzzle.dart';
 
 class UpdateUi extends ChangeNotifier {
   late Puzzle _puzzle;
@@ -14,6 +14,10 @@ class UpdateUi extends ChangeNotifier {
 
   void refresh(){
     notifyListeners();
+  }
+
+  void assignToPuzzle(Puzzle puzzle){
+    _puzzle = puzzle;
   }
 
 //--------------------------------------------------------------------------

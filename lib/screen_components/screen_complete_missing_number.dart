@@ -1,4 +1,4 @@
-import 'dart:developer';
+
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -12,11 +12,12 @@ import '../widget/message_image.dart';
 import '../widget/screen_complete_missing_numbers/number_container.dart';
 
 class ScreenCompleteMissingNumber extends StatefulWidget {
-  const ScreenCompleteMissingNumber(
-      {super.key,
-      required this.min,
-      required this.max,
-      required this.isAscending});
+  const ScreenCompleteMissingNumber({
+    super.key,
+    required this.min,
+    required this.max,
+    required this.isAscending,
+  });
 
   final int min;
   final int max;
@@ -31,7 +32,6 @@ class _ScreenCompleteMissingNumberState
     extends State<ScreenCompleteMissingNumber> {
   List<bool> _answerState = [];
   bool isAnimDone = true;
-  //bool isDone = false;
   int number = 0;
   var height = AppSize().getHeight() - blockArea;
   late double size;
@@ -42,7 +42,6 @@ class _ScreenCompleteMissingNumberState
   @override
   void initState() {
     super.initState();
-    // TODO : convert hard number to variable
     size = height / 4;
     width = size * 6 + (5 * 5);
   }
@@ -87,8 +86,6 @@ class _ScreenCompleteMissingNumberState
     index = -1;
     _answerState = [];
     //}
-    log('fun build');
-    log('isanim : $isAnimDone');
     return Stack(
       alignment: Alignment.center,
       children: [
@@ -121,7 +118,7 @@ class _ScreenCompleteMissingNumberState
                     },
                     index: i,
                     isMissing: isMissing,
-                    isAscending :widget.isAscending,
+                    isAscending: widget.isAscending,
                     number: !isAnimDone
                         ? 0
                         : widget.isAscending

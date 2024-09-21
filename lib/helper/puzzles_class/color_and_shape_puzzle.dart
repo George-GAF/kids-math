@@ -1,11 +1,11 @@
 import 'dart:math';
-import 'dart:developer' as dev;
+
 import 'package:flutter/material.dart';
-import '../widget/drag_and_drop_widget/target_widget.dart';
-import 'app_size.dart';
-import 'create_numbers.dart';
+import '../../widget/drag_and_drop_widget/target_widget.dart';
+import '../app_size.dart';
+import '../create_numbers.dart';
 import 'puzzle.dart';
-import 'shape.dart';
+import '../shape.dart';
 
 class ColorAndShapePuzzle extends Puzzle {
 
@@ -108,7 +108,6 @@ class ColorAndShapePuzzle extends Puzzle {
       _targetShapes.add(shape);
       _topListPos.add(top);
       _leftListPos.add(left);
-      dev.log(shape.name());
     }
 
   }

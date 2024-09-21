@@ -57,12 +57,12 @@ class _NumberBalloonState extends State<NumberBalloon> {
     //--------------------------------------------------
     generateValues();
     Timer(Duration(milliseconds: timeToMoveBalloonNumber * index), () {
-      var _lD = 2.0;
+      var lD = 2.0;
       moving = Timer.periodic(duration, (timer) {
         if (mounted) {
           setState(() {
-            _lD = _lD * -1;
-            left += _lD;
+            lD = lD * -1;
+            left += lD;
             if (bottom < maxY) {
               bottom += distance;
             } else {

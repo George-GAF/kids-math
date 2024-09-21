@@ -50,9 +50,6 @@ class _LandingScreenState extends State<LandingScreen>
               } else {
                 timer.cancel();
                 Future.delayed(const Duration(milliseconds: 500), () {
-                  //GameSize.width = MediaQuery.of(context).size.width;
-                  //GameSize.height = MediaQuery.of(context).size.height;
-                  //GameSize.calcWideScreen();
                   Navigator.pushReplacementNamed(context, HomeScreen.routeName);
 
                 });

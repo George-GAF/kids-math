@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import '../widget/cus_text_style.dart';
 
-Widget customText(String data,
-    {Color fontColor = Colors.amber, double height = 0, double width = 0}) {
+Widget customText(
+  String data, {
+  Color fontColor = Colors.amber,
+  double height = 0,
+  double width = 0,
+}) {
   return LayoutBuilder(builder: (context, boxConst) {
     double _height = height == 0 ? boxConst.maxHeight : height;
     double _width = width == 0 ? boxConst.maxWidth : width;

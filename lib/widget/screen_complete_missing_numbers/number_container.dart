@@ -16,13 +16,14 @@ class NumberContainer extends StatelessWidget {
     required this.isAscending,
   });
   final bool isAscending;
-  final int index;
-  final double size;
   final bool isMissing;
+
   final int number;
+  final double size;
   final int answerIndex;
   final Function(int, bool) updateAnswerState;
   final Function() onTap;
+  final int index;
 
   @override
   Widget build(BuildContext context) {

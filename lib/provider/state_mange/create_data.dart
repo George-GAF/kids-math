@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../helper/detect_number_puzzle.dart';
-import '../../helper/puzzle.dart';
 
-import '../../helper/color_and_shape_puzzle.dart';
+import '../../helper/puzzles_class/color_and_shape_puzzle.dart';
+import '../../helper/puzzles_class/detect_number_puzzle.dart';
+import '../../helper/puzzles_class/puzzle.dart';
 
 class CreateData extends ChangeNotifier {
-  late Puzzle _puzzle ;
+  late Puzzle _puzzle;
   Puzzle get puzzle => _puzzle;
 
   void start() {
@@ -14,6 +14,10 @@ class CreateData extends ChangeNotifier {
 
   Puzzle readData() {
     return _puzzle;
+  }
+
+  void assignToPuzzle(Puzzle puzzle) {
+    _puzzle = puzzle;
   }
 
 //-----------------------------------------------------------------

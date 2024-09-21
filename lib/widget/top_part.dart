@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../constant/constant.dart';
 import '../provider/active_screen.dart';
+import 'app_menu/app_menu.dart';
 import 'back_button.dart';
 
 class TopPart extends StatelessWidget {
@@ -26,7 +27,11 @@ class TopPart extends StatelessWidget {
             width: MediaQuery.of(context).size.width - 160,
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (context) => const AppMenuSetting());
+            },
             icon: const Icon(
               shadows: [
                 Shadow(

@@ -102,8 +102,7 @@ class GuideContainer extends StatelessWidget {
   final Shape shape;
   @override
   Widget build(BuildContext context) {
-    //dev.log('GuideContainer build function');
-    //var shape = context.watch<UpdateUi>().shapePuzzle.targetShapes[index];
+
     return Container(
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(

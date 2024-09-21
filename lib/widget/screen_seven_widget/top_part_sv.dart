@@ -1,4 +1,4 @@
-import 'dart:developer' as dev;
+
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -16,7 +16,6 @@ class TopPartSV extends StatelessWidget {
     var updateUi = context.watch<UpdateUi>();
     var score = updateUi.numberPuzzle().score;
     var maxScore = Random().nextInt(score + 30) + (score * .5).toInt();
-    dev.log('max : $maxScore --- score : $score ');
     if (score >= maxScore) {
       var createData = context.read<CreateData>();
       createData.start();

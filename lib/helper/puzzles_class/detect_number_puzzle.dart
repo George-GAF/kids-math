@@ -1,7 +1,7 @@
 
 import 'dart:math';
-import 'dart:developer' as dev;
-import '/helper/puzzle.dart';
+
+import 'puzzle.dart';
 
 class DetectNumberPuzzle extends Puzzle {
   final List<String> _target = [
@@ -24,7 +24,6 @@ class DetectNumberPuzzle extends Puzzle {
 
   void updateScore() {
     ++_score;
-    dev.log('current score : $score');
   }
 
   @override

@@ -1,4 +1,4 @@
-import 'dart:developer';
+
 
 import 'package:flutter/material.dart';
 
@@ -42,7 +42,6 @@ class _DraggableWidgetState extends State<DraggableWidget> {
           widget.onEnd!(detail);
           return;
         }
-        log('onDragEnd ${detail.offset}');
         setState(() {
           _isDropped = detail.wasAccepted;
         });

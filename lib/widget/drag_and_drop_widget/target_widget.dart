@@ -1,4 +1,4 @@
-import 'dart:developer';
+
 
 import 'package:flutter/material.dart';
 
@@ -34,18 +34,15 @@ class TargetWidgetState extends State<TargetWidget> {
 
   @override
   Widget build(BuildContext context) {
-    log('target name : ${widget.name} isDropped : $isDropped');
     double size = MediaQuery.of(context).size.height * .15;
     DraggableItem child = const DraggableItem(name: '', id: '');
     return DragTarget<DraggableItem>(
       onWillAccept: (data) {
-        //   log('from onWillAccept data ${data?.name}');
         return data?.id == widget.name && !isDropped;
       },
       onAccept: (data) {
         child = data;
         isDropped = true;
-        //log('from target name ${widget.name} : isDropped : $isDropped');
         widget.onAssign(child.name);
         if (widget.timeToRest != 0) {
           Future.delayed(Duration(milliseconds: widget.timeToRest), () {

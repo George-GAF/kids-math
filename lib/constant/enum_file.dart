@@ -45,3 +45,5 @@ extension RotateDirValue on RotateDir {
     }
   }
 }
+
+enum ShapesName { rectangle, circle, square, hash, plus, diamond }

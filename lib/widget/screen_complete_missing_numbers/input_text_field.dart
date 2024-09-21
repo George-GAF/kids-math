@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -34,10 +36,10 @@ class _InputTextFieldState extends State<InputTextField> {
     if (widget.index == boardProvider.indexTapped) {
       int temp = boardProvider.numberTyped;
       _textEditingController.text = '${temp == -1 ? "" : temp}';
-      if (temp != -1) {
+      //if (temp != -1) {
         isCorrect = temp == widget.number;
         widget.updateAnswerState(widget.answerIndex, isCorrect);
-      }
+      //}
     }
 
     if (boardProvider.clear) {
