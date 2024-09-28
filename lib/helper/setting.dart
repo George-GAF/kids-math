@@ -1,17 +1,19 @@
-
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../constant/enum_file.dart';
+
 bool isSoundOn = true;
+bool isMusicOn = true;
 
 class SavedSetting {
-  Future<void> saveSetting(bool value) async {
+  static Future<void> saveSetting(bool value, Setting setting) async {
     final prefs = await SharedPreferences.getInstance();
-    prefs.setBool('play_sound', value);
+    prefs.setBool(setting.value, value);
   }
 
-  Future<bool> loadSetting() async {
+  static Future<bool> loadSetting(Setting setting) async {
     final prefs = await SharedPreferences.getInstance();
-    return prefs.getBool('play_sound') ??
+    return prefs.getBool(setting.value) ??
         true; // Use a default value if not found
   }
 }

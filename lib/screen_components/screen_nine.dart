@@ -31,7 +31,6 @@ class ScreenContent extends StatelessWidget {
     ColorNumber colorNumber = createData.puzzle as ColorNumber;
     var colorsCount = colorNumber.colorCount;
     var colorsList = colorNumber.colorList;
-
     var update = context.read<UpdateUi>();
     update.assignToPuzzle(ColorNumber());
     update.fillData(colorNumber);

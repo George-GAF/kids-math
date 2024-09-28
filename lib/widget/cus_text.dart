@@ -6,6 +6,7 @@ Widget customText(
   Color fontColor = Colors.amber,
   double height = 0,
   double width = 0,
+  TextAlign align = TextAlign.center,
 }) {
   return LayoutBuilder(builder: (context, boxConst) {
     double _height = height == 0 ? boxConst.maxHeight : height;
@@ -16,7 +17,7 @@ Widget customText(
       child: Text(
         data,
         maxLines: null,
-        textAlign: TextAlign.center,
+        textAlign: align,
         textHeightBehavior:
             const TextHeightBehavior(applyHeightToFirstAscent: false),
         style: customTextStyle(fontSize, fontColor),

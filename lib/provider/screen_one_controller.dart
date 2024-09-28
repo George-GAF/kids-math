@@ -59,16 +59,5 @@ class ScreenOneController extends ChangeNotifier {
   void updateAnswers(List<int> answers) {
     _answers = answers;
   }
-/*
-  void updateIsRight(bool isRight) {
-    _isRight = isRight;
-    notifyListeners();
-  }
 
-  void updateIsWrong(bool isWrong) {
-    _isWrong = isWrong;
-    notifyListeners();
-  }
-
- */
 }

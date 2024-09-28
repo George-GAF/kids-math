@@ -1,4 +1,6 @@
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,7 +19,9 @@ class ScreenEight extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     context.watch<MassageProvider>().isAnimDone;
+
     late CreateData puzzle;
     late UpdateUi puzzleU;
     late ShapeValuePuzzle shapeValue;
