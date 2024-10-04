@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../constant/constant.dart';
 import '../../helper/app_size.dart';
 import '../../helper/puzzles_class/color_number.dart';
+import '../../helper/sound_manager.dart';
 import '../../provider/state_mange/update_ui.dart';
 import 'screen_container.dart';
 
@@ -47,6 +49,7 @@ class ColorsColumn extends StatelessWidget {
         (i) {
           return GestureDetector(
             onTap: () {
+              SoundManager.sound.playSound(click);
               Color newS = colorNumberU.selected == colors[i]
                   ? Colors.transparent
                   : colors[i];

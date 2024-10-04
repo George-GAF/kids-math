@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mathforkids/helper/sound_manager.dart';
 import 'package:provider/provider.dart';
 import 'package:wakelock/wakelock.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -55,9 +56,13 @@ class MyApp extends StatelessWidget {
     SavedSetting.loadSetting(Setting.music).then((value) {
       isMusicOn = value;
     });
+    if(isMusicOn){
+      SoundManager.music.playMusic(music);
+    }
     Wakelock.enable();
     AppSize().readScreenSize(MediaQuery.of(context).size.height - blockArea,
         MediaQuery.of(context).size.width);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Math For Kids',

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../constant/constant.dart';
+import '../helper/sound_manager.dart';
 
 class MessageImage extends StatefulWidget {
   const MessageImage({super.key, required this.imagePath});
@@ -13,8 +13,7 @@ class _MessageImageState extends State<MessageImage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
-  //var _width = 0.0;
-  //var _height = 0.0;
+
 
   @override
   void initState() {
@@ -28,6 +27,11 @@ class _MessageImageState extends State<MessageImage>
       TweenSequenceItem(tween: Tween(begin: 0.0, end: 0.8), weight: 50),
       TweenSequenceItem(tween: Tween(begin: 0.8, end: 0.0), weight: 50),
     ]).animate(_controller);
+    if('${wordPath}EXCELLENT.png' == widget.imagePath){
+      SoundManager.playExcellentSound();
+    }else{
+      SoundManager.playWrongSound();
+    }
   }
 
   @override
@@ -38,6 +42,7 @@ class _MessageImageState extends State<MessageImage>
 
   @override
   Widget build(BuildContext context) {
+
     return AnimatedBuilder(
         animation: _animation,
         builder: (cont, child) {

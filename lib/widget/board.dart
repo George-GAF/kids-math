@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constant/constant.dart';
+import '../helper/sound_manager.dart';
 import 'cus_text.dart';
 
 double _avaWidth = 0;
@@ -74,6 +75,7 @@ class _BoardButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
+        SoundManager.sound.playSound(click);
         getValue(value);
       },
       style: TextButton.styleFrom(

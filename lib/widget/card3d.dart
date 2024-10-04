@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../constant/constant.dart';
+import '../helper/sound_manager.dart';
 import '../provider/active_screen.dart';
 import '../screen_components/screen_icons.dart';
 
@@ -20,6 +21,7 @@ class Card3D extends StatelessWidget {
           context.read<ActiveScreen>().updateIndex(1);
           context.read<ActiveScreen>().updateContentIndex(index);
           context.read<ActiveScreen>().updateBackGroundIndex(index+1);
+          SoundManager.sound.playSound(menuClick);
         },
         child: Container(
           decoration: _buildBoxDecoration(iconsColors[index]),

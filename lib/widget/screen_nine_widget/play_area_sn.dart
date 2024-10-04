@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../constant/constant.dart';
 import '../../helper/puzzles_class/color_number.dart';
+import '../../helper/sound_manager.dart';
 import '../../provider/massage_provider.dart';
 import '../../provider/state_mange/update_ui.dart';
 import '../cus_text.dart';
@@ -79,6 +80,7 @@ class _NumberContainerState extends State<NumberContainer> {
     var colorList = data.colorList;
     return GestureDetector(
       onTap: () {
+        SoundManager.sound.playSound(click);
         pickedColor = data.selected;
         var index = widget.number - 1;
         var correctColor = colorList[index];

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wakelock/wakelock.dart';
 
+import '../../constant/constant.dart';
 import '../../constant/enum_file.dart';
 import '../../helper/app_size.dart';
 import '../../helper/setting.dart';
@@ -18,15 +19,16 @@ class AppMenuSetting extends StatelessWidget {
     var buttonWidth = width * .8;
 
     return AlertDialog(
-
       shadowColor: Colors.green,
       backgroundColor: Colors.green[100],
       titlePadding: const EdgeInsets.symmetric(
         vertical: 5,
       ),
       elevation: 3,
+      scrollable: true,
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(height * .1)),
+        side: const BorderSide(color: Colors.yellow,width: 5, ),
+          borderRadius: BorderRadius.circular(height * .1),),
       alignment: Alignment.center,
       title: TextButtonMenu(
         'Setting',
@@ -42,10 +44,12 @@ class AppMenuSetting extends StatelessWidget {
               return SettingController(
                 buttonWidth: buttonWidth,
                 onPressed: () {
-                  SoundManager.stopSound();
                   setState(() {
                     isSoundOn = !isSoundOn;
                   });
+                  if(!isSoundOn){
+                    SoundManager.stopSound();
+                  }
                   SavedSetting.saveSetting(isSoundOn, Setting.sound);
                 },
                 setting: Setting.sound,
@@ -60,10 +64,15 @@ class AppMenuSetting extends StatelessWidget {
               return SettingController(
                 buttonWidth: buttonWidth,
                 onPressed: () {
-                  SoundManager.stopSound();
                   setState(() {
                     isMusicOn = !isMusicOn;
                   });
+                  if(!isMusicOn){
+                    SoundManager.music.stopSound();
+                  }else{
+                    SoundManager.music.playSound(music);
+                  }
+
                   SavedSetting.saveSetting(isMusicOn, Setting.music);
                 },
                 setting: Setting.music,
@@ -128,12 +137,12 @@ class SettingController extends StatelessWidget {
           children: [
             TextButtonMenu(
               '${setting.value}${isOn ? " ON " : " OFF "}',
-              fontColor: Colors.blue[900]!,
+              fontColor:Colors.white, //Colors.blue[900]!,
               width: buttonWidth,
             ),
             Icon(
               isOn ? onIcon : offIcon,
-              color: Colors.blue[900],
+              color: Colors.white,//Colors.blue[900],
               size: buttonWidth * 0.09,
             ),
           ],

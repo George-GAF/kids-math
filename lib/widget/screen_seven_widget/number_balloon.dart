@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../../constant/constant.dart';
 import '../../helper/app_size.dart';
+import '../../helper/sound_manager.dart';
 import '../../provider/state_mange/update_ui.dart';
 import '../cus_text.dart';
 
@@ -94,6 +95,7 @@ class _NumberBalloonState extends State<NumberBalloon> {
       child: GestureDetector(
         onTap: () {
           if (number == numberTarget) {
+            SoundManager.sound.playSound(click);
             upDateUi.updateScore();
             context.read<UpdateUi>().refresh();
             if (mounted) {

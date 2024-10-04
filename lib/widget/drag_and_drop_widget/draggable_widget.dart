@@ -1,8 +1,8 @@
-
-
 import 'package:flutter/material.dart';
 
+import '../../constant/constant.dart';
 import '../../helper/draggable_item.dart';
+import '../../helper/sound_manager.dart';
 
 class DraggableWidget extends StatefulWidget {
   const DraggableWidget({
@@ -33,6 +33,7 @@ class _DraggableWidgetState extends State<DraggableWidget> {
       ),
 
       onDragStarted: (){
+        SoundManager.sound.playSound(click);
         if(widget.onStart != null){
           widget.onStart!();
         }

@@ -51,7 +51,6 @@ class HomeScreen extends StatelessWidget {
 
 
 void _adjustScreen(){
-
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.landscapeLeft,
     DeviceOrientation.landscapeRight,

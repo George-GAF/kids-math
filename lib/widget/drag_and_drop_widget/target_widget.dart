@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 
+import '../../constant/constant.dart';
 import '../../helper/draggable_item.dart';
+import '../../helper/sound_manager.dart';
 
 class TargetWidget extends StatefulWidget {
 
@@ -28,7 +30,6 @@ class TargetWidgetState extends State<TargetWidget> {
   void rest() {
     setState(() {
       isDropped = false;
-    //  log('from target : $isDropped');
     });
   }
 
@@ -41,6 +42,7 @@ class TargetWidgetState extends State<TargetWidget> {
         return data?.id == widget.name && !isDropped;
       },
       onAccept: (data) {
+        SoundManager.sound.playSound(drop);
         child = data;
         isDropped = true;
         widget.onAssign(child.name);

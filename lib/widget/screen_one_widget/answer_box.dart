@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import '../../constant/constant.dart';
 import '../../constant/enum_file.dart';
 import '../../helper/answer_detail.dart';
+import '../../helper/sound_manager.dart';
 import '../../provider/massage_provider.dart';
 import '../../provider/screen_one_controller.dart';
 import '../cus_text.dart';
@@ -25,6 +26,7 @@ LayoutBuilder answerBox(String data) {
 
     return GestureDetector(
       onTap: () {
+        SoundManager.sound.playSound(click);
         bool isCorrect = false;
         AnswerDetail answerDetail = AnswerDetail();
         int value = int.parse(data);

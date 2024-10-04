@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../constant/constant.dart';
+import '../helper/sound_manager.dart';
 import '../provider/active_screen.dart';
 import '../provider/board_provider.dart';
 import '../provider/massage_provider.dart';
@@ -16,6 +18,7 @@ class ScreenBackButton extends StatelessWidget {
     return LayoutBuilder(builder: (context, box) {
       return IconButton(
         onPressed: () {
+          SoundManager.sound.playSound(menuClick);
           context.read<ActiveScreen>().updateIndex(0);
           context.read<ActiveScreen>().updateBackGroundIndex(0);
           context.read<MassageProvider>().resetValue();

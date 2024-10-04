@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../constant/constant.dart';
+import '../../helper/sound_manager.dart';
 import '../../widget/cus_text.dart';
 import '../../helper/app_size.dart';
 import '../../provider/screen_five_controller.dart';
@@ -77,6 +79,7 @@ class _ColoredContainerState extends State<_ColoredContainer> {
     }
     return GestureDetector(
       onTap: () {
+        SoundManager.sound.playSound(click);
         bool isCorrect = provider.isCorrect[widget.index];
         if (isCorrect) {
           return;

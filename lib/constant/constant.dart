@@ -19,8 +19,17 @@ const balloonNumber = 25;
 const distanceToTopBalloonNumber = 35;
 ScrollController controller = ScrollController();
 //---------------------------------------
-// Screen Nine
-
+// Sound Paths
+const _mp3 = '.mp3';
+const _sound = 'sound/';
+const click='${_sound}click.wav';
+const celebrateWithExcellent='${_sound}celebrateWithExcellent$_mp3';
+const drop='${_sound}drop$_mp3';
+const excellent = '${_sound}excellent$_mp3';
+const menuClick = '${_sound}menuClick$_mp3';
+const music = '${_sound}music.m4a';
+const wrongAnswer = '${_sound}wrongAnswer$_mp3';
+const wrongMusic = '${_sound}wrongMusic$_mp3';
 
 //-----------------------------------------
 //--------------------------------

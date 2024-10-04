@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../constant/constant.dart';
+import '../helper/sound_manager.dart';
 import '../provider/active_screen.dart';
 import 'app_menu/app_menu.dart';
 import 'back_button.dart';
@@ -28,6 +29,7 @@ class TopPart extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
+              SoundManager.sound.playSound(menuClick);
               showDialog(
                   context: context,
                   builder: (context) => const AppMenuSetting());

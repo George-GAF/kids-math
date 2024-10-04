@@ -1,46 +1,20 @@
 import 'package:flutter/material.dart';
-/*
-class MenuButton extends StatelessWidget {
-  const MenuButton({
-    super.key,
-    required this.child,
-    required this.onPressed,
-    this.width = 100.0,
-  });
-  final Widget child;
-  final Function onPressed;
-  final double width;
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: width,
-      child: ElevatedButton(
-        onPressed: () {
-          onPressed();
-        },
-        child: child,
-      ),
-    );
-  }
-}
-*/
+
+import '../constant/constant.dart';
+import '../helper/sound_manager.dart';
 
 class MenuButton extends StatelessWidget {
   final VoidCallback onPressed;
-  //final String text;
   final double width;
   final Color shadowColorLight;
   final Color shadowColorDark;
-  // final Color fontColor;
   final Widget child;
   final List<Color> colors;
 
   const MenuButton({
     super.key,
     required this.onPressed,
-    // required this.text,
     required this.width,
-    // this.fontColor = Colors.white,
     this.child = const SizedBox(),
     this.shadowColorLight = Colors.black26,
     this.shadowColorDark = Colors.black87,
@@ -51,7 +25,10 @@ class MenuButton extends StatelessWidget {
   Widget build(BuildContext context) {
     var shadowOffsetValue = width * .005;
     return TextButton(
-      onPressed: onPressed,
+      onPressed: (){
+        SoundManager.sound.playSound(click);
+        onPressed();
+      },
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(width * .1),

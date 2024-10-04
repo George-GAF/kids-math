@@ -1,9 +1,10 @@
 
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../constant/constant.dart';
 import '../../constant/enum_file.dart';
+import '../../helper/sound_manager.dart';
 import '../../provider/screen_one_controller.dart';
 import '../cus_text.dart';
 
@@ -12,6 +13,7 @@ Widget switchOperation(BuildContext context, OperationType operationType) {
   var read = context.read<ScreenOneController>();
   return GestureDetector(
     onTap: () {
+      SoundManager.sound.playSound(click);
       if (watch.activeOperation != operationType) {
         read.updateActiveOperation(operationType);
         watch.questionWithAnswer.updateAnswers(operationType);
