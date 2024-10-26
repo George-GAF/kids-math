@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import '../constant/constant.dart';
 import '../helper/sound_manager.dart';
@@ -16,7 +18,7 @@ class Board extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _avaWidth = MediaQuery.of(context).size.width / 4;
+    _avaWidth = MediaQuery.of(context).size.width * .25;
     _height = MediaQuery.of(context).size.height - blockArea;
     List<int> number = List.generate(11, (index) => index - 1);
     return SizedBox(
@@ -58,8 +60,13 @@ class _BoardRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children:
-          list.map((e) => _BoardButton(value: e, getValue: getValue)).toList(),
+      children: list
+          .map(
+            (e) => Expanded(
+              child: _BoardButton(value: e, getValue: getValue),
+            ),
+          )
+          .toList(),
     );
   }
 }
@@ -73,25 +80,27 @@ class _BoardButton extends StatelessWidget {
   final Function(int value) getValue;
   @override
   Widget build(BuildContext context) {
+    var size = _avaWidth * .20;
+    log("Width $_avaWidth ");
+    log("size $size ");
+
     return TextButton(
       onPressed: () {
         SoundManager.sound.playSound(click);
         getValue(value);
       },
       style: TextButton.styleFrom(
-        padding: const EdgeInsets.all(3),
-        shape:const CircleBorder(),
+        padding: EdgeInsets.all(_avaWidth * .033),
+        shape: const CircleBorder(),
         backgroundColor: Colors.amber,
         shadowColor: Colors.black,
-        elevation: 5
+        elevation: _avaWidth * .055,
       ),
-      child: SizedBox(
-        height: _avaWidth / 5,
-        width: _avaWidth / 5,
-        child: customText(
-          '${value == -1 ? "DEL" : value}',
-          fontColor: Colors.white,
-        ),
+      child: customText(
+        '${value == -1 ? "DEL" : value}',
+        fontColor: Colors.white,
+        width: size,
+        height: size,
       ),
     );
   }

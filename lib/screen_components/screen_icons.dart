@@ -15,9 +15,7 @@ List<Widget> icons = [
   iconImage('${iconPath}Tetris.png'),
   customText('Click on Number'),
   _shapeValueIcon,
-  //iconImage('${iconPath}iconLinkCountToNum.png'),
   colorAsNumberList(),
-  // iconImage('${iconPath}whatcomenext.png'),
 ];
 //----------------------------------------------------
 var size = 14.0;
@@ -26,12 +24,19 @@ ShapeValuePuzzle shValue = ShapeValuePuzzle();
 var _shapeValueIcon = Column(
   mainAxisAlignment: MainAxisAlignment.center,
   children: [
-    ShapesWidgetRow(size: size, borderColor: Colors.black),
-    ValuesWidgetRow(
-      length: shValue.getLen(),
-      size: size,
-      borderColor: Colors.black,
-      color: Colors.white,
+    Expanded(
+      child: ShapesWidgetRow(
+        size: size,
+        borderColor: Colors.black,
+      ),
+    ),
+    Expanded(
+      child: ValuesWidgetRow(
+        length: shValue.getLen(),
+        size: size,
+        borderColor: Colors.black,
+        color: Colors.white,
+      ),
     ),
   ],
 );

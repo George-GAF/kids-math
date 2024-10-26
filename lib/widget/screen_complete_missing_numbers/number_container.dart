@@ -30,7 +30,11 @@ class NumberContainer extends StatelessWidget {
     return Container(
       height: size,
       width: size,
-      decoration: isAscending ? _isAscendingDec(size) : _isNotAscendingDec(),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(size * .1),
+      ),
       child: isMissing
           ? InputTextField(
               number: number,
@@ -44,7 +48,7 @@ class NumberContainer extends StatelessWidget {
     );
   }
 }
-
+/*
 BoxDecoration _isAscendingDec(double size) {
   return BoxDecoration(
     border: Border.all(color: Colors.black),
@@ -60,3 +64,4 @@ BoxDecoration _isNotAscendingDec() {
     shape: BoxShape.circle,
   );
 }
+*/

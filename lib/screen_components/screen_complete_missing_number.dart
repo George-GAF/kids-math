@@ -104,8 +104,8 @@ class _ScreenCompleteMissingNumberState
                   mainAxisSpacing: 5,
                 ),
                 itemBuilder: (cont, i) {
-                  var numbers = GetNumbers().getNumbers(0, 2);
-                  var isMissing = numbers[0] + numbers[1] == 0;
+                  var numbers = GetNumbers().getNumbers(0, 3);
+                  var isMissing = numbers[0] + numbers[1] < 2;
                   if (isMissing) {
                     _answerState.add(false);
                     index++;

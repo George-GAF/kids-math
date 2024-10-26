@@ -45,11 +45,11 @@ const String explainMassage =
 
 List<String> backgroundName = [
   'background.jpeg',
-  'backGround5.jpeg',
   'backGround1.jpeg',
   'backGround2.jpeg',
   'backGround3.jpeg',
   'backGround4.jpeg',
+  'backGround5.jpeg',
   'backGround6.jpeg',
   'backGround7.jpeg',
   'backGround8.jpeg',

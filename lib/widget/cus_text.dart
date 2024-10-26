@@ -9,10 +9,10 @@ Widget customText(
   TextAlign align = TextAlign.center,
 }) {
   return LayoutBuilder(builder: (context, boxConst) {
-    double _height = height == 0 ? boxConst.maxHeight : height;
-    double _width = width == 0 ? boxConst.maxWidth : width;
-    double tempFontSize = (_width / data.length);
-    double fontSize = _height > tempFontSize ? tempFontSize : _height * .8;
+    double tHeight = height == 0 ? boxConst.maxHeight : height;
+    double tWidth = width == 0 ? boxConst.maxWidth : width;
+    double tempFontSize = (tWidth / data.length);
+    double fontSize = tHeight > tempFontSize ? tempFontSize : tHeight * .8;
     return Align(
       child: Text(
         data,

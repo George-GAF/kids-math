@@ -28,7 +28,6 @@ class ColorAndShapePuzzle extends Puzzle {
   List<Shape> _targetShapes = [];
   List<double> _leftListPos = [];
   List<double> _topListPos = [];
-  //List<TargetWidget> _targetList = [];
   List<bool> _acceptedIndex = List.generate(_shapeCount, (index) => false);
 
   List<Shape> get shapes => _shapes;
@@ -36,18 +35,17 @@ class ColorAndShapePuzzle extends Puzzle {
   List<double> get leftListPos => _leftListPos;
   List<double> get topListPos => _topListPos;
   List<bool> get acceptedIndex => _acceptedIndex;
-  //List<TargetWidget> get targetList => _targetList;
   bool get isDone => _isDone;
 
 
   @override
   void copyData(Puzzle source) {
     resetValue();
-    var _source = source as ColorAndShapePuzzle;
-    _shapes.addAll(_source.shapes);
-    _targetShapes.addAll(_source.targetShapes);
-    _leftListPos.addAll(_source.leftListPos);
-    _topListPos.addAll(_source.topListPos);
+    var tSource = source as ColorAndShapePuzzle;
+    _shapes.addAll(tSource.shapes);
+    _targetShapes.addAll(tSource.targetShapes);
+    _leftListPos.addAll(tSource.leftListPos);
+    _topListPos.addAll(tSource.topListPos);
   }
 
   int getCellCount() {

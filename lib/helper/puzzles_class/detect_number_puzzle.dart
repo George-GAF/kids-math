@@ -37,8 +37,8 @@ class DetectNumberPuzzle extends Puzzle {
 
   @override
   void copyData(Puzzle source) {
-    var _source = source as DetectNumberPuzzle;
-    _currentTarget = _source.currentTarget;
+    var tSource = source as DetectNumberPuzzle;
+    _currentTarget = tSource.currentTarget;
   }
 
   String target(){

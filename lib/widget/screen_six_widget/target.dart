@@ -22,6 +22,7 @@ class Target extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: targetSize * .07,
+              color: Colors.white,
             ),
           ),
           ShapeBoard(
